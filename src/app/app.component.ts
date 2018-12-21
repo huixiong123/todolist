@@ -9,4 +9,5 @@ import { MatSidenav, MatSidenavContainer } from '@angular/material';
 export class AppComponent {
   title = 'todolist-frontend';
   showFiller = false;
+  opened: boolean = true;
 }

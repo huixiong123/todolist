@@ -1,5 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-sidenav-container class="container">
-  <mat-sidenav mode="side" opened></mat-sidenav>
-  <mat-sidenav-content></mat-sidenav-content>
+<div class="fab" [ngClass]="{'hidden-fab': !this.opened}" (click)="sidenav.toggle();this.opened = !this.opened;"></div>
+<mat-sidenav-container class="container" >
+  <mat-sidenav #sidenav mode="side" opened [(opened)]="opened">
+
+    <mat-list class="mat-list-header">
+      <mat-list-item>
+        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                matBadgeColor="warn" class="menu-line">
+          <i class="material-icons">inbox</i>Inbox</button>
+      </mat-list-item>
+      <!--<mat-divider></mat-divider>-->
+      <mat-list-item>Item 2</mat-list-item>
+      <!--<mat-divider></mat-divider>-->
+      <mat-list-item>Item 3</mat-list-item>
+    </mat-list>
+    <div>
+
+    </div>
+    <div class="mat-sidenav-footer">
+      <button mat-stroked-button class="new-list-empty-border">+ New List</button>
+
+      <button mat-stroked-button class="config-button-empty-border"><i class="material-icons">tune</i></button>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="{'no-margin': true}">
+    <div class="mat-sidenav-content-footer">
+
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
