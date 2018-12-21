@@ -4,15 +4,49 @@
   <mat-sidenav #sidenav mode="side" opened [(opened)]="opened">
 
     <mat-list class="mat-list-header">
+      <mat-divider></mat-divider>
       <mat-list-item>
         <button mat-stroked-button matBadge="22" matBadgePosition="above after"
                 matBadgeColor="warn" class="menu-line">
           <i class="material-icons">inbox</i>Inbox</button>
       </mat-list-item>
-      <!--<mat-divider></mat-divider>-->
-      <mat-list-item>Item 2</mat-list-item>
-      <!--<mat-divider></mat-divider>-->
-      <mat-list-item>Item 3</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="mat-list-item">
+        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                             matBadgeColor="warn" class="menu-line">
+        <i class="material-icons">stars</i>Today</button>
+      </mat-list-item>
+
+      <mat-list-item class="mat-list-item">
+        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                matBadgeColor="warn" class="menu-line">
+          <i class="material-icons">calendar_today</i>Upcoming</button>
+      </mat-list-item>
+
+      <mat-list-item class="mat-list-item">
+        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                matBadgeColor="warn" class="menu-line">
+          <i class="material-icons">calendar_today</i>Anytime</button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                matBadgeColor="warn" class="menu-line">
+          <i class="material-icons">calendar_today</i>Someday</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                matBadgeColor="warn" class="menu-line">
+          <i class="material-icons">calendar_today</i>Logbook</button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                matBadgeColor="warn" class="menu-line">
+          <i class="material-icons">calendar_today</i>Trash</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
     </mat-list>
     <div>
 
