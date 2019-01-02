@@ -36,7 +36,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule,
+  MatTreeModule
 } from '@angular/material';
 import { AppComponent } from './app.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';

@@ -2,58 +2,122 @@
 <div class="fab" [ngClass]="{'hidden-fab': !this.opened}" (click)="sidenav.toggle();this.opened = !this.opened;"></div>
 <mat-sidenav-container class="container" >
   <mat-sidenav #sidenav mode="side" opened [(opened)]="opened">
+    <div class="mat-sidenav-body">
+      <mat-list class="mat-list-header">
+        <mat-list-item>
+          <button mat-stroked-button matBadge="22" matBadgePosition="above after"
+                  matBadgeColor="warn" class="menu-line">
+            <i class="material-icons">inbox</i>Inbox
+            <label class="label-float">20</label>
+          </button>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-line">
+          <button mat-stroked-button matBadge="18" matBadgePosition="above after"
+                  matBadgeColor="warn" class="menu-line">
+            <i class="material-icons">stars</i>Today
+            <label class="label-float">18</label>
+          </button>
+        </mat-list-item>
 
-    <mat-list class="mat-list-header">
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
-                matBadgeColor="warn" class="menu-line">
-          <i class="material-icons">inbox</i>Inbox</button>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item class="mat-list-item">
-        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
-                             matBadgeColor="warn" class="menu-line">
-        <i class="material-icons">stars</i>Today</button>
-      </mat-list-item>
+        <mat-list-item class="mat-list-item-line">
+          <button mat-stroked-button  class="menu-line">
+            <i class="material-icons">calendar_today</i>Upcoming
+          </button>
+        </mat-list-item>
 
-      <mat-list-item class="mat-list-item">
-        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
-                matBadgeColor="warn" class="menu-line">
-          <i class="material-icons">calendar_today</i>Upcoming</button>
-      </mat-list-item>
+        <mat-list-item class="mat-list-item-line">
+          <button mat-stroked-button class="menu-line">
+            <i class="material-icons">av_timer</i>Anytime
+          </button>
+        </mat-list-item>
 
-      <mat-list-item class="mat-list-item">
-        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
-                matBadgeColor="warn" class="menu-line">
-          <i class="material-icons">calendar_today</i>Anytime</button>
-      </mat-list-item>
+        <mat-list-item class="mat-list-item-line">
+          <button mat-stroked-button  class="menu-line">
+            <i class="material-icons">today</i>Someday
+          </button>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-line mat-list-item-line-padding">
+          <button mat-stroked-button  class="menu-line">
+            <i class="material-icons">archive</i>Logbook
+          </button>
+        </mat-list-item>
 
-      <mat-list-item>
-        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
-                matBadgeColor="warn" class="menu-line">
-          <i class="material-icons">calendar_today</i>Someday</button>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
-                matBadgeColor="warn" class="menu-line">
-          <i class="material-icons">calendar_today</i>Logbook</button>
-      </mat-list-item>
+        <mat-list-item class="mat-list-item-line">
+          <button mat-stroked-button  class="menu-line">
+            <i class="material-icons">delete</i>Trash
+          </button>
+        </mat-list-item>
+        <mat-accordion>
+          <mat-expansion-panel [ngClass]="{'fixed-height':this.show}" class="mat-list-item-line-padding-2">
+            <mat-expansion-panel-header [ngClass]="{'fixed-height':this.show}" (dblclick)="dbClick(this.idea) && box.focus()">
+              <mat-panel-title [matMenuTriggerFor]="contextMenu" (contextmenu)="onContextMenu($event)">
+                <i class="material-icons">room</i><label class="label-font" [ngClass]="{'idea-hidden':this.show}">{{this.idea}}</label>
+                <input #box class="input-text-style" [ngClass]="{'idea-hidden':!this.show}" type="text" (keyup.enter)="changeIdea(box.value)" value="{{this.idea}}" (ngModel)="this.idea"/>
+                <mat-menu #contextMenu="matMenu">
+                  <ng-template matMenuContent>
+                    <button mat-menu-item (click)="onContextMenuAction1(item)">Create Project</button>
+                    <button mat-menu-item (click)="onContextMenuAction2(item)">Delete Project</button>
+                  </ng-template>
+                </mat-menu>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div [ngClass]="{'idea-hidden':this.show}">
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Vacation In Rome
+            </button>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Buy a New Car
+            </button>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Throw Party for Eve
+            </button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="material-icons">room</i>Work
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Prepare Presentation
+            </button>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Onboard James
+            </button>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Attend Conference
+            </button>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Order Team T-Shirts
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="material-icons">room</i>Hobbies
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Learn Basic Italian
+            </button>
+            <button mat-stroked-button class="menu-line button-padding-left">
+              <i class="material-icons">list</i>Run a Marathon
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-      <mat-list-item>
-        <button mat-stroked-button matBadge="22" matBadgePosition="above after"
-                matBadgeColor="warn" class="menu-line">
-          <i class="material-icons">calendar_today</i>Trash</button>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-    </mat-list>
-    <div>
+        <mat-accordion *ngIf="">
 
+        </mat-accordion>
+      </mat-list>
     </div>
     <div class="mat-sidenav-footer">
       <button mat-stroked-button class="new-list-empty-border">+ New List</button>
-
       <button mat-stroked-button class="config-button-empty-border"><i class="material-icons">tune</i></button>
     </div>
 

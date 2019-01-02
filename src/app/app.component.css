@@ -81,6 +81,13 @@
   bottom: 0;
 }
 
+.mat-sidenav-body {
+  margin: 0;
+  padding: 0;
+  height: calc(100% - 52px);
+  overflow-y: auto;
+}
+
 .mat-sidenav-footer {
   min-height: 49px;
   width: 300px;
@@ -105,47 +112,78 @@
   padding-top: 50px;
 }
 
+.idea-hidden {
+  display: none;
+  visibility: hidden;
+}
+
 .menu-line {
   border: none;
   text-align: left;
   width: 100%;
 }
 
-#mat-badge-content-0 {
-  right: 25px;
-  top: 7px;
+span[id^='mat-badge-content-']{
+  right: 35px !important;
+  top: 7px !important;
 }
 
-#mat-badge-content-1 {
-  right: 25px;
-  top: 7px;
+.mat-list-item-line {
+  height: 34px !important;
 }
 
-#mat-badge-content-2 {
-  right: 25px;
-  top: 7px;
+.mat-list-item-line-padding {
+  padding-top: 12px !important;
 }
 
-#mat-badge-content-3 {
-  right: 25px;
-  top: 7px;
+.mat-list-item-line-padding-2 {
+  padding-top: 20px !important;
 }
 
-#mat-badge-content-4 {
-  right: 25px;
-  top: 7px;
+.icon-padding {
+  padding-left: 14px !important;
+
 }
 
-#mat-badge-content-5 {
-  right: 25px;
-  top: 7px;
+.label-float {
+  float: right;
+  padding-top: 1px;
+  color: rgb(181,182,185);
+  font-weight: 600;
+  font-size: 12px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
-#mat-badge-content-6 {
-  right: 25px;
-  top: 7px;
+.mat-expansion-panel {
+  background: rgb(245,247,247);
+  box-shadow: none !important;
 }
 
-.mat-list-item {
-  height: 35px;
+.mat-expansion-panel-header {
+  padding: 0 30px;
 }
+
+.button-padding-left {
+  padding-left: 6px !important;
+}
+
+/deep/ span.mat-expansion-indicator {
+  display: none !important;
+}
+
+.fixed-height {
+  height: 48px !important;
+}
+
+.input-text-style {
+  padding: 0;
+  border: 0;
+  background-color: rgb(245,246,246);
+  caret-color: rgb(245, 246, 246) !important;
+}
+
+.label-font {
+  font: 400 13.3333px Arial;
+  padding-top: 4px;
+}
+
