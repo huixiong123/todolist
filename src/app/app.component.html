@@ -80,11 +80,11 @@
     <div class="mat-sidenav-footer">
       <button mat-stroked-button class="new-list-empty-border" [matMenuTriggerFor]="menuList">+ New List</button>
       <mat-menu #menuList="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="openAddIdeaDialog()">
           <mat-icon>dialpad</mat-icon>
           <span>Add Idea</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="openAddProjectDialog()">
           <mat-icon>notifications_off</mat-icon>
           <span>Add Project</span>
         </button>
@@ -98,9 +98,11 @@
       <button mat-stroked-button class="footer-button-empty-border">
         <mat-icon>add_alert</mat-icon>
       </button>
-      <button mat-stroked-button class="footer-button-empty-border">
+      <button mat-stroked-button (click)="picker.open()" class="footer-button-empty-border">
         <mat-icon>calendar_today</mat-icon>
       </button>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
       <button mat-stroked-button class="footer-button-empty-border">
         <mat-icon>arrow_right_alt</mat-icon>
       </button>

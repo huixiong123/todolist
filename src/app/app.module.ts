@@ -38,15 +38,23 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from '@angular/material';
-import { AppComponent } from './app.component';
+import {AppComponent, DialogAddIdeaDialog, DialogAddProjectDialog} from './app.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogAddIdeaDialog,
+    DialogAddProjectDialog
+  ],
+  entryComponents: [
+    AppComponent,
+    DialogAddIdeaDialog,
+    DialogAddProjectDialog
   ],
   imports: [
     BrowserModule,
@@ -91,7 +99,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    ScrollingModule
+    ScrollingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
