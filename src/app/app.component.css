@@ -79,6 +79,7 @@
   border-top: 1px solid rgb(235,235,236);
   position: absolute;
   bottom: 0;
+  text-align: center;
 }
 
 .mat-sidenav-body {
@@ -186,4 +187,27 @@ span[id^='mat-badge-content-']{
   font: 400 13.3333px Arial;
   padding-top: 4px;
 }
+
+.button-float-right {
+  float: right;
+}
+
+hr {
+  display: block;
+  text-align: center;
+  width: 85%;
+  border-top: 1px solid rgb(235,235,236);
+  border-bottom: 0;
+  border-right: 0;
+  border-left: 0;
+  padding: 0;
+}
+
+.footer-button-empty-border {
+  border: none;
+  margin-top: 7px;
+  margin-left: 30px;
+  width: 140px;
+}
+
 
