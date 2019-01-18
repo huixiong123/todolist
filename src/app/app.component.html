@@ -57,7 +57,9 @@
                 <i class="material-icons">room</i>{{item.name}}
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <button *ngFor="let project of item.projects" mat-stroked-button class="menu-line button-padding-left">
+            <button *ngFor="let project of item.projects" mat-stroked-button
+                    (click)="getProject(project.name)"
+                    class="menu-line button-padding-left">
               <i class="material-icons">list</i>{{project.name}}
               <button class="button-float-right" mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>
@@ -94,15 +96,90 @@
 
   </mat-sidenav>
   <mat-sidenav-content [ngClass]="{'no-margin': true}">
+    <div class="mat-sidenav-content-main">
+      <!--project name and note-->
+      <div class="main-content-header">
+        <button *ngIf="this.title" mat-button class="main-content-top">
+          <i class="material-icons">
+            history
+          </i>
+          {{this.title}}
+          <button class="button-float-right" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>dialpad</mat-icon>
+              <span>Redial</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Disable alerts</span>
+            </button>
+          </mat-menu>
+        </button>
+        <br><br>
+        <mat-form-field class="main-top-note-container">
+          <textarea matInput cdkTextareaAutosize class="main-top-note-input"
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5">the project is used to a demo for angular material</textarea>
+        </mat-form-field>
+      </div>
+      <br/>
+      <!--project tags-->
+      <div class="tags-container">
+        <button *ngFor="let tag of this.tags" mat-raised-button
+                class="tag-button" (click)="chooseTag($event, tag)">{{tag}}</button>
+      </div>
+      <br>
+      <!--create task template-->
+      <div>
+        <mat-grid-list class="mat-grid-list-class" cols="2" rowHeight="24px">
+          <mat-grid-tile class="mat-grid-tile-left-column" rowspan="4"><mat-checkbox></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile class="mat-grid-tile-right-column" >line 1</mat-grid-tile>
+          <mat-grid-tile class="mat-grid-tile-right-column" >line 2</mat-grid-tile>
+          <mat-grid-tile class="mat-grid-tile-right-column" >line 3</mat-grid-tile>
+          <mat-grid-tile class="mat-grid-tile-right-column" >line 4</mat-grid-tile>
+        </mat-grid-list>
+
+      </div>
+      <br>
+      <!--project sub-title and task-->
+      <div>
+        <mat-form-field class="main-top-title-container">
+          <input matInput class="main-top-title-input"  value="Preparations">
+          <button class="button-float-right" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>dialpad</mat-icon>
+              <span>Add Title</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Add Task</span>
+            </button>
+          </mat-menu>
+        </mat-form-field>
+        <div class="task-container">
+          <mat-checkbox>read the book 101-120 pages</mat-checkbox><br>
+          <mat-checkbox>drive the car to next city</mat-checkbox><br>
+          <mat-checkbox>buy gifts to children</mat-checkbox><br>
+        </div>
+      </div>
+
+    </div>
     <div class="mat-sidenav-content-footer">
       <button mat-stroked-button class="footer-button-empty-border">
         <mat-icon>add_alert</mat-icon>
       </button>
+      <!--<input matInput type="hidden" [matDatepicker]="picker" placeholder="Choose a date">-->
+      <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+      <!--<mat-datepicker #picker></mat-datepicker>-->
       <button mat-stroked-button (click)="picker.open()" class="footer-button-empty-border">
         <mat-icon>calendar_today</mat-icon>
       </button>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
       <button mat-stroked-button class="footer-button-empty-border">
         <mat-icon>arrow_right_alt</mat-icon>
       </button>

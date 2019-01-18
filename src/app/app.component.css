@@ -82,6 +82,15 @@
   text-align: center;
 }
 
+.mat-sidenav-content-main {
+  height: calc(100% - 112px);
+  min-width: 400px;
+  margin: 20px;
+  text-align: center;
+
+  /*border: 1px solid rgb(235,235,236);*/
+}
+
 .mat-sidenav-body {
   margin: 0;
   padding: 0;
@@ -210,4 +219,116 @@ hr {
   width: 140px;
 }
 
+.main-content-top {
+  width: 100%;
+  text-align: left;
+  font-size: larger;
+  padding: 0px 8px !important;
+}
 
+.main-content-header {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.main-top-note-container {
+  width: 100%;
+  text-align: left;
+  /*border: 1px solid rgb(235,235,236);*/
+}
+
+.main-top-title-container {
+  width: 100%;
+  text-align: left;
+  /*border-bottom: 1px solid rgb(235,235,236);*/
+}
+
+.main-top-note-input {
+  font: 400 13.3333px Arial;
+  width:calc(100% - 22px);
+  text-align: left;
+  margin: 0;
+  min-height: 20px;
+  min-width: 200px;
+  border: 1px solid rgb(235,235,236);
+  padding: 5px 10px;
+}
+
+.task-container {
+  text-align: left;
+  font: 450 13.3333px Arial;
+}
+
+.tags-container {
+  font: 450 13.3333px Arial;
+  text-align: left;
+}
+
+.main-top-title-input {
+  font: 500 13.3333px Arial;
+  font-size: large;
+  width:calc(100% - 72px);
+  text-align: left;
+  margin: 0;
+  min-height: 20px;
+  min-width: 200px;
+  border-bottom: 1px solid rgb(235,235,236);
+  padding: 5px 10px;
+}
+
+.title-bottom-border {
+  border-bottom: 1px solid rgb(235,235,236);
+}
+
+/deep/ .mat-form-field-underline.ng-star-inserted {
+  height: 0px !important;
+  bottom: 0px !important;
+  background-color: white !important;
+}
+
+/deep/ span.mat-form-field-ripple {
+  height: 0px !important;
+}
+
+/deep/ div.mat-form-field-infix {
+  padding: 0px !important;
+  border: 0px !important;
+}
+
+/deep/ div.mat-form-field-wrapper {
+  padding-bottom: 10px !important;
+}
+
+.tag-active {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.tag-button {
+  min-width: 80px;
+  margin-left: 15px;
+  line-height: 20px !important;
+}
+
+.mat-grid-list-class {
+  /*text-align: left;*/
+  /*align-items: center;*/
+  border: 1px solid rgb(235,235,236);
+}
+
+.mat-grid-tile-left-column {
+  width: 20px !important;
+  border: 1px solid rgb(235,235,236);
+}
+
+.mat-grid-tile-right-column {
+  left: 22px !important;
+  width: calc(100% - 22px) !important;
+  /*border: 1px solid rgb(235,235,236);*/
+}
+
+
+/deep/ .mat-grid-tile .mat-figure {
+  align-items: flex-start !important;
+}

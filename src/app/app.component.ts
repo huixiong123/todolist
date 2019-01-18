@@ -14,6 +14,9 @@ export class AppComponent implements OnInit {
   opened = true;
   ideas: IdeaProjectDetail[] = [];
   projects: ProjectDetail[] = [];
+  title = '';
+  tags: string[] = ['important', 'today', 'must'];
+  choosedTags: string[] = [];
 
   constructor(public dialog: MatDialog) {
   }
@@ -48,8 +51,39 @@ export class AppComponent implements OnInit {
     });
   }
 
+  getProject(name) {
+    this.title = name;
+  }
+
+  chooseTag(event, tag) {
+    let element: any;
+    // get current button element which clicked.
+    if (event.srcElement.nodeName === 'BUTTON') {
+      element = event.srcElement;
+    } else if (event.srcElement.parentElement.nodeName === 'BUTTON') {
+      element = event.srcElement.parentElement;
+    } else {
+      return;
+    }
+    // add or remove the class 'tag-active' to the button's class list.
+    if (element.classList.contains('tag-active')) {
+      element.classList.remove('tag-active');
+      if (this.choosedTags.indexOf(tag) !== -1) {
+        this.choosedTags.splice(this.choosedTags.indexOf(tag), 1);
+        console.log(this.choosedTags);
+      }
+    } else {
+      element.classList.add('tag-active');
+      if (this.choosedTags.indexOf(tag) === -1) {
+        this.choosedTags.push(tag);
+        console.log(this.choosedTags);
+      }
+    }
+  }
+
 }
 
+// sub-dialog
 @Component({
   selector: 'dialog-add-idea-dialog',
   templateUrl: 'add-idea-dialog.html'
